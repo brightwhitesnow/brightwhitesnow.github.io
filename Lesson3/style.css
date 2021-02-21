@@ -3,6 +3,7 @@
     justify-content: space-around;
     align-items: center;
     padding: 5px;
+    border: 0px;
 }
 
 .fas fa-search {
