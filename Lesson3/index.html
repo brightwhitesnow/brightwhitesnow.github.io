@@ -7,9 +7,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         .nav {
-            background-color: cyan;
+            height: 70px;
+            background: -webkit-linear-gradient(to right, #f857a6, #ff5858); /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #f857a6, #ff5858); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
             font-family: 'Sacramento', cursive;
             font-size: 25px;
         }
@@ -18,10 +21,13 @@
             text-decoration-line: none;
             color: black;
             transition: 1s;
+            height: 30px;
         }
 
         a:hover {
+            height: 30px;
             color: rgb(83, 73, 226);
+            border-bottom: 2px solid white;
             transition: 1s;
         }
 
@@ -30,6 +36,7 @@
         }
     </style>
     <link href="https://pro.fontawesome.com/releases/v5.12.0/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="./packet/sweetalert2.css">
 </head>
 <body>
     <div class="nav">
@@ -43,6 +50,74 @@
         <a href=""><p>Contact</p></a>
         <a href=""><p>Login <i class="fal fa-user"></i></p></a>
     </div>
+    <div class="banner">
+        <br><br>
+        <h1 class="glow">Banana</h1>
+    </div>
+    <div class="container">
+        <br>
+        <h2 style="text-align: center;">Cac San Pham HOT</h2>
+        <br>
+        <div class="divcontainer">
+            <div data-aos="fade-down" class="item1">
+                <img src="" alt="">
+                <h3>Banana</h3>
+                <p>Tellus at urna condimentum<br> mattis pellentesque id nibh tortor id.<br> Euismod in pellentesque massa placerat duis ultricies<Br> lacus sed turpis. Amet nisl purus in<br> mollis nunc sed. Suscipit tellus mauris a <br>diam maecenas. Eget nullam non<Br> nisi est sit amet.</p>
+                <br><br><br>
+                <div class="containerforprice">
+                <h4>$0.50 Per Banana</h4>
+                <button onclick="myfunction()" class="buynow3">Buy Now!</button>
+                </div>
+                <br><br><br>
+            </div>
+            <br>
+            <div data-aos="fade-down" class="item2">
+                <img src="" alt="">
+                <h3>Banana</h3>
+                <p>Tellus at urna condimentum<br> mattis pellentesque id nibh tortor id.<br> Euismod in pellentesque massa placerat duis ultricies<Br> lacus sed turpis. Amet nisl purus in<br> mollis nunc sed. Suscipit tellus mauris a <br>diam maecenas. Eget nullam non<Br> nisi est sit amet.</p>
+                <br><br><br>
+                <div class="containerforprice">
+                <h4>$0.50 Per Banana</h4>
+                <button onclick="myfunction()" class="buynow3">Buy Now!</button>
+                </div>
+                <br><br><br>
+            </div>
+            <br>
+            <div data-aos="fade-down" class="item3">
+                <img src="" alt="">
+                <h3>Banana</h3>
+                <p>Tellus at urna condimentum<br> mattis pellentesque id nibh tortor id.<br> Euismod in pellentesque massa placerat duis ultricies<Br> lacus sed turpis. Amet nisl purus in<br> mollis nunc sed. Suscipit tellus mauris a <br>diam maecenas. Eget nullam non<Br> nisi est sit amet.</p>
+                <br><br><br>
+                <div class="containerforprice">
+                <h4>$0.50 Per Banana</h4>
+                <button onclick="myfunction()" class="buynow3">Buy Now!</button>
+                </div>
+                <br><br><br>
+            </div>
+            
+        </div>
+    </div>        
+    <br>
+    <script src="./packet/sweetalert2.all.min.js"></script>
+    <script src="./packet/confetti.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+        function myfunction() {
+            Swal.fire('Thank You! Your package will be delivered in 2 days.')
+            confetti.start()
+            setTimeout(function () {
+                confetti.stop();
+            }, 3000);}
+        let btn = document.querySelector('button')
+        btn.addEventListener('click', () => {
+            Swal.fire('Thank You! Your package will be delivered in 2 days.')
+            confetti.start()
+            setTimeout(function () {
+                confetti.stop();
+            }, 3000);
+        })
+    </script>
     
 </body>
 </html>

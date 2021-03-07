@@ -1,3 +1,8 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
 .nav {
     display: flex;
     justify-content: space-around;
@@ -22,4 +27,144 @@ nav img {
     outline: none;
     border-radius: 15px;
     border: 1px solid transparent;
+}
+
+.banner {
+    text-align: center;
+    height: 700px;
+    width: 100%;
+    background: url(https://nypost.com/wp-content/uploads/sites/2/2020/06/banana-fungi.jpg?quality=80&strip=all);
+}
+/* glow text */
+.glow {
+    font-size: 80px;
+    color: #fff;
+    text-align: center;
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternate;
+  }
+  
+  @-webkit-keyframes glow {
+    from {
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ff9f43, 0 0 40px #ff9f43, 0 0 50px #ff9f43, 0 0 60px #ff9f43, 0 0 70px #ff9f43;
+    }
+    to {
+      text-shadow: 0 0 20px #fff, 0 0 30px #feca57, 0 0 40px #feca57, 0 0 50px #feca57, 0 0 60px #feca57, 0 0 70px #feca57, 0 0 80px #feca57;
+    }
+  }
+  
+  .divcontainer {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    align-items: flex-start;
+  }
+
+  .item1 {
+    width: 400px;
+    background-color: yellow;
+    margin-bottom: 20px;
+  }
+  .item2 {
+    background-color: yellow;
+    width: 400px;
+    margin-bottom: 20px;
+  }
+  .item3 {
+    background-color: yellow;
+    width: 400px;
+    margin-bottom: 20px;
+  }
+
+  .containerforprice {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .buynow3 {
+    background-color: rgb(255, 213, 0);
+    border: 0px black solid;
+    transition: 1s;
+    border-radius: 15px;
+    width: 100px;
+    text-align: center;
+    height: 25px;
+  }
+
+  .buynow3:hover {
+    background-color: rgba(255, 224, 86, 0.884);
+    border: 0px black solid;
+    transition: 1s;
+    border-radius: 15px;
+    width: 200px;
+    text-align: center;
+    height: 25px;
+  }
+
+  .divcontainer div {
+    width: 400px;
+  }
+
+  /* Popup container - can be anything you want */
+.popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* The actual popup */
+.popup .popuptext {
+  visibility: hidden;
+  width: 160px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -80px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;} 
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
+
+.container {
+  background: rgb(63,94,251);
+  background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+  height: 400px;
 }
