@@ -40,7 +40,7 @@
 </head>
 <body>
     <div class="nav">
-        <img src="https://theplasticfixers.calvinbun.repl.co/funny.png" alt="" style="border-radius: 999px;width: 40px;height: auto;" class="logo">
+        <img src="Logo.png" alt="" style="border-radius: 999px;width: 60px;height: auto;" class="logo">
         <div class="search">
         <input type="text">
         <a href=""><i class="fas fa-search"></i></a>
@@ -51,7 +51,7 @@
         <a href=""><p>Login <i class="fal fa-user"></i></p></a>
     </div>
     <div class="banner">
-        <br><br>
+        <br><br><br><Br><Br>
         <h1 class="glow">Banana</h1>
     </div>
     <div class="container">
@@ -100,17 +100,53 @@
 
     <div class="footer">
         <div class="footercard1">
-
+            <br><br><br><br>
+            <h2>Contact</h2><br><br>
+            <p>Email:</p><br>
+            <p>bennguyen0808@gmail.com</p><br>
+            <p>Phone Number:</p><br>
+            <p>+84 123456789</p>
         </div>
         <div class="footercard2">
-
+                <form action="/action_page.php">
+                    <label for="fname">First Name</label>
+                    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+                
+                    <label for="lname">Last Name</label>
+                    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+                
+                    <label for="country">Country</label>
+                    <select id="country" name="country">
+                        <option value="australia">Australia</option>
+                        <option value="canada">Canada</option>
+                        <option value="usa">USA</option>
+                    </select>
+                
+                    <label for="subject">Subject</label>
+                    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+                
+                    <input type="submit" value="Submit">
+                    </form>
         </div>
         <div class="footercard3">
-
+<br><br><br><br><br><br><Br><Br><br>
+            <p style="font-family: italic;color: lightgreen;text-align: center;">"The Bananas we got are yummy and fresh."</p>
         </div>
     </div>
+    
+    <div class="sm">
+        <a href=""><img src="discordlogo.png" alt=""></a>
+        <a href="https://facebook.com/bigchungusnbn/"><img src="facebooklogo.png" alt=""></a>
+        <a href="https://nguyenductuan.itch.io/"><img src="itchiologo.png" alt=""></a>
+        <a href=""><img src="twitterlogo.png" alt=""></a>
+        <a href="https://pixilart.com/hiholollipopyo/"><img src="pixilartlogo.png" alt=""></a>
+        <a href="https://scratch.mit.edu/users/scratcher12345678919/"><img src="scratchlogo.png" alt=""></a>
+        <a href="https://m.me/bigchungusbn/" target="_blank"><img src="https://www.iconpacks.net/icons/2/free-facebook-messenger-icon-2880-thumb.png" alt=""></a>
+    </div>
+    
 
-    <br>
+
+
     <script src="./packet/sweetalert2.all.min.js"></script>
     <script src="./packet/confetti.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -122,15 +158,9 @@
             setTimeout(function () {
                 confetti.stop();
             }, 3000);}
-        let btn = document.querySelector('button')
-        btn.addEventListener('click', () => {
-            Swal.fire('Thank You! Your package will be delivered in 2 days.')
-            confetti.start()
-            setTimeout(function () {
-                confetti.stop();
-            }, 3000);
-        })
+        
     </script>
-    
+
+
 </body>
 </html>
