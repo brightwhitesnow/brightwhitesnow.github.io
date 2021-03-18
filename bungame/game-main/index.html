@@ -1,0 +1,71 @@
+<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+<link rel="stylesheet" href="game.css">
+<style>
+    body {
+        margin: 0;
+        background: black;
+        overflow: hidden;
+    }
+
+    #musicCON {
+        background-image: url(https://cdn.pixabay.com/photo/2017/07/09/20/48/speaker-2488096_1280.png);
+        width: 40px;
+        height: 40px;
+        background-size: cover;
+        position: fixed;
+    }
+
+    #restartCON {
+        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAe1BMVEUAAAD////8/Pz4+Pj09PTx8fHX19fT09Pn5+fe3t6Li4vh4eHk5OSmpqbBwcFXV1fKyso6OjpNTU1AQEAiIiJ2dnadnZ26urplZWVdXV1JSUkbGxtubm4sLCyNjY2ampocHBwtLS0TExOBgYGzs7Nzc3MQEBBDQ0M7Ozs2EPJzAAAMVklEQVR4nN1da2OyPAx95Q7KReXqBVSY2///ha9uuqFCkpZS6nO+ThnHtmmSpif//Tcyzqd4v853iVemfhBY8/ncDjI/9erdbrXex6ex//+YiJebYlengTPrxzxL6zz8PB6mfllmHFZJ2UQLgFsLmhv4ZbJ6o+HcJGljaTR2fzStJk3WU786AXHiR5bJyO4O0w78PJ6aAoiwcXnZ3YfScYN8ahp9iKu5PozeDfoi3U9N5hXbnSWE3R1usp2aUhvHvGE1LDi0Jl9OTeyGrzoSTu8HlrcR+J7xiu9763Isft8cK3EbyMba8XwrtUfkd4WdiuIYzpya9TvrZi5+/T1Dc/2jIIYzrWL7im+Oz++bo5mKYFhcn5WxfMGQQu9GkmcJdTGcWcQJcV6NaV+6YA/2zPOfBy0Kyoc3qcwB/IHuD9w6drcHOTX6W8WeWP+FCssb5JUn9+eYKfKcIpBjYF6hD3LK67/nZCDFkhjXjgLH52fotZ7j9lOMMzHxAy+0iNsBSNvPMft83sKditovHN6NI318TtL1mbiahtQTOKPH5vEpeoe9WQXTMHpBxBMlnLOnp2jN19NHEigtKBdO5xRDGL6Oz+MvdSqnNTGP0FNmb/zcEQXNW7tP7KtE8DLFsucpxsNwZv5Ohv0IaYqBCBhzHKfORabfwpZYiJ9tmlGU+VlkOQNTjj+w2UzqqeefBleTuuS3MZqum7bflbI/rxLfMnSdf3L07tqd2PY95mJvVpw/ue4sohIJCLabOpg7nGvcYNk1ehnOrJKLoGMHVXGm/fOwCmyuaWIy+Dcxzz/ohRH5O7ZVcszTgOOXNOm5pb04epqdJjy53P2uYjdodIpHYfz8fE2cnK/4ylPW2UqeqBtBBNPlsHTK+cjqHJpEc7MSQc8puUevjQ+2EM2gLYliMD3N9UTQ+0ZisewfJsmo5UMJztODMIIX1DaDJ2BTRvFjGD+n4TzY6cUpZZirAcENr/HH9EPPBKSkXxD69A0yw4MpD39KL+bJOIfSh5y8P2r4yUaKP6UPzXhHtfuEuhp1NOr3eflp41ZOnKjpdQczBA3+jE5+wWFUghekxGGMkKXCl0Yzy7H5XZDMaS+DLEWuIN4dw4S+IiT+/PDbEH+nBwShFIKXsKAizVQHjLY5AlBfYrlLgr/OBRHk9bMT9IR42VR8kEYROpliJuhIriHMKQ4OdGrDzHCmiaxXIiCkmIqo/3dnZzibJXKregvC5q/1b188DDX2w4NBWBEoun2uTX8yEaSYfUqlGBICKr9nYvEmE23RYSFCETc3es8mveZkOHNI9TfCkOObhtX9zQGpNjme2x073hcK+RmC26x44BGj1vk9wk/TD9aTvGHAfdSm62vDElGRLBf8iv1zxcELzK681JA0zUxaGPUDdM/QutZNOYzhzJERCt/xgaWL5x3bNHea5g69c/KPBCxt1jWIgxle7I1Eipj7Zr1GBejqJcBlrf/gxwmbp68V60JqLRby7A1m+18HUcytCbOUFU+h5S8vlk9QyZre59kLBxbyu89eiJASnisCScmNLWYbn1eMMIYzW1JyAwuHn6+OiGM4m0uyNxViT58mk0CGM0PcaTeEzlrDFh7LULaCGOqmaZWyrp1/wLdanIcPxwIYGgsrqGQGGZhn82BNvwZe8jHcKPNC2ZIByLb/4JyuBzDU7Satw0lu0cNh1MM0DTkZarbv7TaTaQTAJTJ626hz3SW0049weZiK3TfgQWxHOzlrCatbFXsFlDrg9NK8lZKvyQw1w7A9ZQQ69uAtM7NVn0FjaDhuVMpNciM4w9eUWtYUz9B97wcrqYeiFMA58Ojvg3BFh2Fnfr1SSqfijiUYJ7bi4P77Ipf9oPzYHKbjgACcpq0S6Z40jV19hF+H6V6fgByM3f8WYkfBilUVy1i5dfeCGKy1+bvv2/ZhNV2zPVV0U3CARtL9jQTuDA1nHglVTBkfBVTAoP3uiFeGpmtnb8buihgMhH/zppF13Q8UcMM4ACazm/tCLN6U3RUlFDVE72NQ+rGC9gu4mO9dAHrfcgspRgJY3iy3jmIk7KAdUU5mc2R8QaGfr75bRgDEMFIyJGIFlOw11ZbSJAKMERXUmGQHWLjwT2yIYMbtn9gulv88Q7DAmVkqUUlADP+JLR9kyKgFqSigDVFu9etYgOInFrFLdQEdBsPldu/itUJOjd37rf1nkXAoak0CKFUz7/rCdp3XVWbJLagcAqg+ynz+8LHw/Cy6Ld13sUNglN/+4GfiB3ZbOf5d7BBlDLdFFbmL530lAp+rDrB1uEwyx+iU3Oq3Q2oBsqUW+FcHf7gSgBL7AXgR/8UOKQrIa8vodkhhwH4peEw89asTAVFIYWGaqV+dCIhCCRf4Tf3qREAUavjm4Xskqo4Qhd1/n9Cf38P1BksUd3Ci6j0cU9BYrmDBxJ5bw4oBzHkf/4uhcw1j6pcnATm3OEBVqPpbHO8jZ09nyKnR38GYLrHzQ+gKsPYOxhSswLwmhMFzjXeIgdFzfHDLX0z9+gSAujXXWoxPyNQ4Ui/BcOETygd/y7eCN/h1mbfQ+VCjNVEn8AhV/YQioa4N1FNglHaXjwOhNhFUC1ko2zLzBlggq8Y/w9qLTTrAthu3GuEjWCot6+oyJ7bgMsxuawy8Fu2oPU0LsDLxHv2B9lbxY2JQlMW4lylswOumSpfZwivM+r2kBX5sZBndYSjAK2l/WpjwtadK4aNgWDnoTzOnAK/WOHK1A1mwB9dXuzMEfNtU3cIpuBvAvGVBYAEedzoKCGBZhfbx5w6+Q6qqrYF19B5EzA+wpoKqSUV4CM0HC4noSas5iEjHikf1MaRFiZrH3YiS0pNoGzxNTRUHERFSej7ARvpbqFiVgQzhc2HpFr6vLklVhwUeonTxkpxAmiN0qNhNi09EnSZ48TWxVjrSdMpoOGPaia/Z+iUiu2Sqdc8NdqUvHluHdgcm8KlUOiPGhB67AiI4H3DBh3wivcDWVLdwOaZipysUJ2LKXd39SlD1WnU8G0wX0u05bkFlWlVJSqGawH0VFiusv4KuRiycY6pWi94TMx8T4untPCAT2F4/0/o1jY+o9F42/UHNAW1NZQL+F9qbDOiQIQslqvgEHs3jovVT74o7XFoOdE3wJoETJ4gJynJIGIQ5NpdAakoHlSB/2HlJpgVCiwy0S9142OADgM6xLaGJnjUVxQ1BlLtBJQZWhG41Ex1HweJsP+jf7P+AW+MLxSki/g1FOJ7iWML6YDdMkNSgTNFZRDpFQgPFKyizQShCyluZxEpD1D29wpC7L6Le9jeoTTa2tD4CMgMN5OjoBnp5E010Vy9lZW4OoJ7XL1iSZbQOz1omx9589ktzPoBJIILYPNeSsRhzYktgtk43R2LTEmP8aArL3v/+2ozlBqDOWxtjn9lQGxWbzNsXosv/Bycfz+DEpO6jV2gcKi20HrxXZOE4mdRzSG5hpPkcml54f7NfOOkYCt/rlN79JuJ6Abjc7RG2+PNFj6F/EW8rTTR/2oIRid048ohB6n/OvS8vyUvxAlNgj8AwYmkpog0IVzdsHQUiMcH/irGD2CDPirUthF0M3TrigrF/2NDM2I61A43tFfy1jMeCxb78EBx8+axmbrJjZGXBc+h/LsqMuZOIiCIRsNy/B/OMtSfSeeVlhBzYC0ERvexOHotFvUN3o6am2rhl3UQuxw8pYIr+ADs074PpuH6Bhd1x4bsOb7spYen3Fc8o/kDX9UXmdVrYuPCyxeXv3M/WBAbgSwbvpg+mY0eNn5ap30Q296i1MBeal14LaeMpFKLbEH5l/DN1FAjyn1rYk7KosqA1I8RrW/h6lFQY9Th5hYIhYBwV7miHtEtiknFkNGMe7rF7qcJhjqwMzBq7CYc9+qHXyZ9yGM1GRslSLabFNQ8iSdrVLGk+kVhU8uoHChHd5hmhNVKPnQ872cO4yKV3qgDFJoRjkhstMUvSdhCMbKp7AnkgY6462ZR1u3kjIDYG4TZTX2UpfEqhCy8WvgoiR2E11jgu5HYy78d5XY8RV0XJJ/6/peG8rPhzZl0wyqNCV3RuWGWmGJa6Oan1hHCuo8XQPdJc2LXSfbbWXsaXoP8ePDfKamWafvcjDj2fwxVwAt8LVbrjCOOY12ngUvOPhpWlda6uhEoPTsfP8MITPjPTraZKinC9V89wknE67L+K2qv8Jgjc79YS5twKMj8tvV24jA+jU/sfhUbArg3XOfwAAAAASUVORK5CYII=);
+        width: 35px;
+        height: 35px;
+        background-size: cover;
+        position: fixed;
+    }
+
+    #lololol {
+        justify-content: flex-end;
+        display: flex;
+        margin-top: 20px;
+        margin-right: 20px;
+    }
+
+    #pp {
+        justify-content: flex-end;
+        margin-right: 23px;
+        display: flex;
+        margin-top: 45px;
+    }
+</style>
+
+<body>
+
+
+    <div class="fixed text-white text-sm ml-2 mt-1 select-none"><span>Score: </span><span id="scoreEl">0</span></div>
+    <div id="lololol"><button id="musicCON"></button></div>
+    <div id="pp"><button id="restartCON"></button></div>
+
+    <div class="fixed inset-0 flex items-center justify-center" id="modalEl">
+        <div class="bg-white max-w-md w-full p-6 text-center">
+            <h1 class="text-4xl font-bold leading-none" id="bigScoreEl">0</h1>
+            <p class="text-sm text-gray-700 mb-4">Points</p>
+            <div><button class="bg-blue-500 text-white w-full py-3 rounded-full text-sm" id="startGameBtn">Start
+                    Game</button></div>
+        </div>
+    </div>
+
+    <audio id="music">
+        <source src="./Invincible [NCS].mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+
+    <canvas></canvas>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"
+        integrity="sha512-IQLehpLoVS4fNzl7IfH8Iowfm5+RiMGtHykgZJl9AWMgqx0AmJ6cRWcB+GaGVtIsnC4voMfm8f2vwtY+6oPjpQ=="
+        crossorigin="anonymous"></script>
+    <script src="./game.js"></script>
+</body>
