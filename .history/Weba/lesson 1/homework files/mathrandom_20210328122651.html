@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Click the button to display a random number between 1 and 100.</p>
+
+<button onclick="myFunction()">Answer Question</button>
+
+<p id="demo"></p>
+
+<script>
+    function myFunction() {
+        let a = Math.floor(Math.random() * 100) + 5
+    let b = Math.floor(Math.random() * 100) + 20
+
+    let answer = prompt(a + "+" + b + " =?")
+
+ if(answer == a+b){
+     alert("Ban da tra loi dung")
+ }else{
+     alert("Ban da tra loi sai")
+ }
+    }
+</script>
+
+</body>
+</html>
