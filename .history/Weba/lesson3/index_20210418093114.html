@@ -7,11 +7,16 @@
     <title>Document</title>
 </head>
 <body>
+    <p id="demo"></p>
 
-<h1>Please inspect and go to console for My Homework.</h1>
+<script>
+var hello;
 
-<p id="demo"></p>
+hello = val => "Hello " + val;
 
-<script src="./script.js"></script>
+document.getElementById("demo").innerHTML = hello("Universe!");
+</script>
+ 
+    <script src="./script.js"></script>
 </body>
 </html>

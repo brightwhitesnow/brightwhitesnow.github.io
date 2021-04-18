@@ -67,17 +67,17 @@ for (let z = 50; z <= 70; z++) {
 
 console.log('Bai 2 Again')
 
-let bai2 = (thu, name) => {
+let bai2 = (thu, name)=>{
     console.log(thu)
     console.log('Wake Up!')
     console.log('Brush My teeth')
     console.log(name + ', Eat')
 }
-bai2('Monday', 'Ben')
-bai2('Tuesday', 'Ben')
-bai2('Wednesday', 'Ben')
-bai2('Thursday', 'Ben')
-bai2('Friday', 'Ben')
+bai2('Monday','Ben')
+bai2('Tuesday','Ben')
+bai2('Wednesday','Ben')
+bai2('Thursday','Ben')
+bai2('Friday','Ben')
 
 
 
@@ -95,52 +95,26 @@ let z = 7
 let y = 5
 
 
-if (y == 0) {
-    console.log('Error')
-}
 
-if (z == 0) {
-    console.log('Error')
-}
-
-
-console.log('Addition')
-
-let a = (y, z) => {
+let a = (y,z)=>{
     console.log(y + z)
 }
 
-console.log('Multiplication')
 
-let m = (y, z) => {
+
+let m = (y,z)=>{
     console.log(y * z)
 }
 
-console.log('Subtraction')
 
-let s = (y, z) => {
+
+let s = (y,z)=>{
     console.log(y - z)
 }
 
-console.log('Division')
 
-let d = (y, z) => {
+
+let d = (y,z)=>{
     console.log(y / z)
 }
 
-
-
-
-
-//var arr1 = ["Banana", "Apple", "Orange", "Tangerine", "Plum", "Grapefruit", "Mango"];
-//arr1.slice(0)
-//var myChildren = arr1.concat("Peach"); 
-//document.getElementById("demo").innerHTML = arr1;
-
-var fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango", ];
-var citrus = fruits;
-citrus.push("Kiwi");
-citrus[2] = "Duong";
-citrus.pop(5);
-document.getElementById("demo").innerHTML = citrus ;
-console.log(fruits.length);

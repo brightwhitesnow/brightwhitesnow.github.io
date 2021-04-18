@@ -135,12 +135,4 @@ let d = (y, z) => {
 //var arr1 = ["Banana", "Apple", "Orange", "Tangerine", "Plum", "Grapefruit", "Mango"];
 //arr1.slice(0)
 //var myChildren = arr1.concat("Peach"); 
-//document.getElementById("demo").innerHTML = arr1;
-
-var fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango", ];
-var citrus = fruits;
-citrus.push("Kiwi");
-citrus[2] = "Duong";
-citrus.pop(5);
-document.getElementById("demo").innerHTML = citrus ;
-console.log(fruits.length);
+document.getElementById("demo").innerHTML = arr1;

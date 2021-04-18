@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<h1>Please inspect and go to console for My Homework.</h1>
+
+<p id="Mon"></p>
+<p id="Tues"></p>
+<p id="Wednes"></p>
+<p id="Thurs"></p>
+<p id="Fri"></p>
+<p id=""></p>
+
+<script>
+var hello;
+
+Mon = val => "Mon" + val;
+Tues = val => "Tues" + val;
+Wednes = val => "Wednes" + val;
+Thurs = val => "Thurs" + val;
+Fri = val => "Fri" + val;
+
+document.getElementById("Mon").innerHTML = Mon("day");
+document.getElementById("Tues").innerHTML = Tues("day");
+document.getElementById("Wednes").innerHTML = Wednes("day");
+document.getElementById("Thurs").innerHTML = Thurs("day");
+document.getElementById("Fri").innerHTML = Fri("day");
+
+document.getElementById("todoinm").innerHTML = ("Wake Up, Brush My Teeth, Eat, Go to School");
+</script>
+
+<script src="./script.js"></script>
+</body>
+</html>
