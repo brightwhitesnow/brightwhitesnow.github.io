@@ -1,0 +1,1 @@
+let arr = ["Mango", "tao", "Orange", "Tangerine"]

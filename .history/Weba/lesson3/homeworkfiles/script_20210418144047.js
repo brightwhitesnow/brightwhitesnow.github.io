@@ -1,0 +1,1 @@
+let arr = ["xoai","tao","cam","quyt"]
