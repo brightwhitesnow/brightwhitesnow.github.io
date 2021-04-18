@@ -1,0 +1,12 @@
+for(let i = 0 ; i <= 100 ; i=i+7){
+    console.log(i)
+}
+
+console.log('---------------')
+
+for(let i = 0 ; i <= 100 ; i=i+7){
+    if 
+    for(let i = 0 ; i <= 100 ; i=i+7){
+        console.log(i)
+    }
+}
