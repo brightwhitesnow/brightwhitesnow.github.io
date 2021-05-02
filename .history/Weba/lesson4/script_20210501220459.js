@@ -81,7 +81,7 @@ let data = [
     {
       name: "Dua Hau",
       url:
-        "https://i.khoahoc.tv/photos/image/2016/03/25/dua-hau-4.jpg"
+        "https://lh3.googleusercontent.com/proxy/l9-Xxf_vI63hAZZFHE54yuBHOgAodKwBYUI7CKY0QLcaJkW3BmaUwjYdhZooPRLufN7pAB7CnbyN6ppJxP9KB_H0iytyrBvxkMbv3qIG4xv2PueMiN_pxLQrU208vDE"
     },
     {
       name: "Du Du",
