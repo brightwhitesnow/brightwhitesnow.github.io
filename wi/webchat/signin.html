@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input[type=text],
+        select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid rgb(179, 255, 0);
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type=submit] {
+            width: 100%;
+            background-color: #32ff3c;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type=submit]:hover {
+            background-color: #52ff5b;
+        }
+
+        .divofform {
+            border-radius: 5px;
+            background-color: #97fffa;
+            padding: 20px;
+        }
+
+        .formsignup {
+            margin-top: 85px;
+            width: 900px;
+            margin-left: 175px;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgb(29, 0, 36);
+            background: linear-gradient(90deg, rgba(29, 0, 36, 1) 0%, rgba(56, 5, 59, 1) 17%, rgba(9, 81, 121, 1) 35%, rgba(7, 147, 117, 1) 54%, rgba(42, 176, 4, 1) 74%, rgba(72, 205, 3, 1) 87%, rgba(1, 235, 236, 1) 95%, rgba(173, 255, 0, 1) 100%);
+        }
+
+        .star {
+            color: rgba(255, 0, 0, 0.774);
+        }
+
+        .password {
+            white-space: nowrap;
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+
+        .password p {
+            display: inline-block;
+        }
+
+        .username {
+            white-space: nowrap;
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+
+        .username p {
+            display: inline-block;
+        }
+
+        .passwordinput {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid rgb(179, 255, 0);
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+    </style>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="formsignup">
+            <div class="row">
+                <div class="col-6 left">
+                    <lottie-player src="https://assets5.lottiefiles.com/packages/lf20_kL3gWL.json"
+                        background="transparent" speed="1" style="width: 400px; height: 400px;" loop autoplay>
+                    </lottie-player>
+                </div>
+                <div class="col-6 right">
+                    <div class="divofform">
+                        <form action="/action_page.php">
+                            <label class="username" for="username">Username <p class="star">*</p></label>
+                            <input type="text" id="username" name="username" placeholder="Your Username..">
+                            <br><Br>
+                            <label class="password" for="password">Password <p class="star">*</p></label><br>
+                            <input
+                                style="width: 100%;padding: 12px 20px;margin:8px 0;display:inline-block;border: 1px solid rgb(179, 255, 0);border-radius: 4px;box-sizing:border-box;"
+                                type="password" value="" id="myInput" name="password" placeholder="Your Password.."><br>
+                            <input type="checkbox" onclick="visibility()"> Show Password
+                            <input type="submit" value="Sign in">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
+    </script>
+    <script>
+        function visibility() {
+            var x = document.getElementById("myInput");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -40,7 +40,7 @@
         }
 
         .formsignup {
-            margin-top: 85px;
+            margin-top: 40px;
             width: 900px;
             margin-left: 175px;
         }
@@ -52,6 +52,12 @@
             background: rgb(2, 0, 36);
             background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(5, 7, 59, 1) 17%, rgba(9, 121, 89, 1) 35%, rgba(7, 118, 147, 1) 54%, rgba(4, 175, 176, 1) 74%, rgba(1, 205, 236, 1) 95%, rgba(0, 70, 255, 1) 100%);
         }
+
+        .star {
+            color: rgba(255, 0, 0, 0.774);
+        }
+
+        
     </style>
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -71,18 +77,23 @@
                 <div class="col-6 right">
                     <div class="divofform">
                         <form action="/action_page.php">
-                            <label for="fname">First Name</label>
-                            <input type="text" id="fname" name="firstname" placeholder="Your name..">
+                            <h5>* = required</h3>
+                            <br>
+                            <label for="fname" class="sameline" required>First Name *</label>
+                            <input type="text" id="fname" name="firstname" placeholder="Your name.." required>
 
                             <label for="lname">Last Name</label>
                             <input type="text" id="lname" name="lastname" placeholder="Your last name..">
 
-                            <label for="email">Email</label>
-                            <input type="text" id="email" name="email" placeholder="Your Email..">
+                            <label class="sameline" for="email">Email *</label>
+                            <input type="text" id="email" name="email" placeholder="Your Email.." required>
 
-                            <label for="password">Password</label>
-                            <input type="text" id="password" name="password" placeholder="Your Password..">
-
+                            <label class="password" class="sameline" for="password">Password *</label><br>
+                            <input
+                                style="width: 100%;padding: 12px 20px;margin:8px 0;display:inline-block;border: 1px solid rgb(0, 238, 255);border-radius: 4px;box-sizing:border-box;"
+                                type="password" value="" id="myInput" name="password" placeholder="Your Password.." required><br>
+                            <input type="checkbox" onclick="visibility()"> Show Password
+                            <Br><Br>
                             <label for="gender">Gender</label>
                             <select id="country" name="country">
                                 <option value="male">--</option>
@@ -104,6 +115,16 @@
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
+    </script>
+    <script>
+        function visibility() {
+            var x = document.getElementById("myInput");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
     </script>
 </body>
 
