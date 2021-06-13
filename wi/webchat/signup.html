@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>BaMesNasageNa Sign Up</title>
     <style>
         input[type=text],
         select {
@@ -73,35 +73,25 @@
                     <lottie-player class="formlottie"
                         src="https://assets5.lottiefiles.com/private_files/lf30_bunvzp09.json" background="transparent"
                         speed="1" style="width: 400px; height: 400px;" loop autoplay></lottie-player>
+                        <p style="text-align: center;font-size: 20px;color: white;">Already have an account? <a style="color: black;text-decoration-line: none;" href="./signin.html">Sign In</a></p>
                 </div>
                 <div class="col-6 right">
                     <div class="divofform">
-                        <form action="/action_page.php">
+                        <form action="#" id="signupform">
                             <h5>* = required</h3>
                             <br>
                             <label for="fname" class="sameline" required>First Name *</label>
-                            <input type="text" id="fname" name="firstname" placeholder="Your name.." required>
+                            <input name="firstname" type="text" id="fname"  placeholder="Your name.." required>
 
                             <label for="lname">Last Name</label>
-                            <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+                            <input name="lastname" type="text" id="lname"  placeholder="Your last name..">
 
                             <label class="sameline" for="email">Email *</label>
-                            <input type="text" id="email" name="email" placeholder="Your Email.." required>
+                            <input name="email" type="text" id="email"  placeholder="Your Email.." required>
 
                             <label class="password" class="sameline" for="password">Password *</label><br>
-                            <input
-                                style="width: 100%;padding: 12px 20px;margin:8px 0;display:inline-block;border: 1px solid rgb(0, 238, 255);border-radius: 4px;box-sizing:border-box;"
-                                type="password" value="" id="myInput" name="password" placeholder="Your Password.." required><br>
-                            <input type="checkbox" onclick="visibility()"> Show Password
-                            <Br><Br>
-                            <label for="gender">Gender</label>
-                            <select id="country" name="country">
-                                <option value="male">--</option>
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
-                                <option value="other">Other</option>
-                            </select>
-
+                            <input name="password" style="width: 100%;padding: 12px 20px;margin:8px 0;display:inline-block;border: 1px solid rgb(0, 238, 255);border-radius: 4px;box-sizing:border-box;" type="password" value="" id="myInput"  placeholder="Your Password.." required><br>
+                            <input type="checkbox" onclick="visibility()"> Show Password<Br>
                             <input type="submit" value="Submit">
                         </form>
                     </div>
@@ -124,6 +114,26 @@
             } else {
                 x.type = "password";
             }
+        }
+    </script>
+    <script>
+        let signupform = document.querySelector("#signupform")
+
+        signupform.onsubmit = (e)=>{
+            e.preventDefault();
+
+            let fname = signupform.fname.value.trim()
+            let email = signupform.email.value.trim()
+            let password = signupform.password.value.trim()
+            let lname = signupform.lname.value.trim()
+
+            let datasignupform = {
+                fname: fname,
+                email: email,
+                password: password,
+                lname: lname
+            }
+            console.log(datasignupform);
         }
     </script>
 </body>
