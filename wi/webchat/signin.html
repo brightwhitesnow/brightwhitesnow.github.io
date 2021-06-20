@@ -95,7 +95,7 @@
 <body>
 
     <div class="container">
-        <div class="formsignup">
+        <div class="formsignin">
             <div class="row">
                 <div class="col-6 left">
                     <lottie-player src="https://assets5.lottiefiles.com/packages/lf20_kL3gWL.json"
@@ -106,14 +106,15 @@
                 <div class="col-6 right">
                     <div class="divofform">
                         <form action="#" id="signinform">
-                            <label class="username" for="username">Username <p class="star">*</p></label>
-                            <input type="text" id="username" name="username" placeholder="Your Username..">
+                            <label class="email" for="email">Email <p class="star">*</p></label>
+                            <input type="text" id="email" name="email" placeholder="Your Email..">
                             <br><Br>
                             <label class="password" for="password">Password <p class="star">*</p></label><br>
                             <input
                                 style="width: 100%;padding: 12px 20px;margin:8px 0;display:inline-block;border: 1px solid rgb(179, 255, 0);border-radius: 4px;box-sizing:border-box;"
                                 type="password" value="" id="myInput" name="password" placeholder="Your Password.."><br>
                             <input type="checkbox" onclick="visibility()"> Show Password
+                            <p id="passwordvalidate"></p>
                             <input type="submit" value="Sign in">
                         </form>
                     </div>
@@ -135,6 +136,35 @@
                 x.type = "text";
             } else {
                 x.type = "password";
+            }
+        }
+    </script>
+    <script>
+        let signinform = document.querySelector("#signinform")
+
+        signinform.onsubmit = (e) => {
+            e.preventDefault();
+            let email = signinform.email.value.trim()
+            let password = signinform.password.value.trim()
+        
+
+            // let datasignupform = {
+            //     fname: fname,
+            //     email: email,
+            //     password: password,
+            //     lname: lname
+            // }
+            if (password >= 6) {
+
+            } else {
+                document.getElementById("passwordvalidate").innerHTML =
+                    "Your password is higher than 6 characters."
+
+               
+                    setTimeout(function () {
+                        document.getElementById("passwordvalidate").innerHTML = ""
+                    }, 3000);
+                
             }
         }
     </script>
