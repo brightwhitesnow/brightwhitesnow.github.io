@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BaMesNasageNa Sign In</title>
+    <link rel="stylesheet" href="./packet/sweetalert2.css">
     <style>
         input[type=text],
         select {
@@ -39,7 +40,7 @@
             padding: 20px;
         }
 
-        .formsignup {
+        .formsignin {
             margin-top: 85px;
             width: 900px;
             margin-left: 175px;
@@ -67,13 +68,13 @@
             display: inline-block;
         }
 
-        .username {
+        .email {
             white-space: nowrap;
             overflow-x: auto;
             overflow-y: hidden;
         }
 
-        .username p {
+        .email p {
             display: inline-block;
         }
 
@@ -85,6 +86,10 @@
             border: 1px solid rgb(179, 255, 0);
             border-radius: 4px;
             box-sizing: border-box;
+        }
+
+        .row {
+            margin-top: 50px;
         }
     </style>
     <!-- CSS only -->
@@ -101,7 +106,8 @@
                     <lottie-player src="https://assets5.lottiefiles.com/packages/lf20_kL3gWL.json"
                         background="transparent" speed="1" style="width: 400px; height: 400px;" loop autoplay>
                     </lottie-player>
-                    <p style="text-align: center;font-size: 20px;color: white;">Don't have an account? <a style="color: black;text-decoration-line: none;" href="./signup.html">Sign Up</a></p>
+                    <p style="text-align: center;font-size: 20px;color: white;">Don't have an account? <a
+                            style="color: black;text-decoration-line: none;" href="./signup.html">Sign Up</a></p>
                 </div>
                 <div class="col-6 right">
                     <div class="divofform">
@@ -114,7 +120,7 @@
                                 style="width: 100%;padding: 12px 20px;margin:8px 0;display:inline-block;border: 1px solid rgb(179, 255, 0);border-radius: 4px;box-sizing:border-box;"
                                 type="password" value="" id="myInput" name="password" placeholder="Your Password.."><br>
                             <input type="checkbox" onclick="visibility()"> Show Password
-                            <p id="passwordvalidate"></p>
+                            <p style="color: red;" id="passwordvalidate"></p>
                             <input type="submit" value="Sign in">
                         </form>
                     </div>
@@ -123,7 +129,34 @@
         </div>
     </div>
 
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
 
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+ https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+
+
+
+    <script>
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        var firebaseConfig = {
+            apiKey: "AIzaSyBu_zHWC7dXAshJy3vdw_xT9wUOj8biJ1E",
+            authDomain: "bamesnasagena.firebaseapp.com",
+            projectId: "bamesnasagena",
+            storageBucket: "bamesnasagena.appspot.com",
+            messagingSenderId: "552839801218",
+            appId: "1:552839801218:web:b8c341bf1866c6d952c79b",
+            measurementId: "G-WNKZFHCDJQ"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
+    
     <!-- JavaScript Bundle with Popper -->
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
@@ -139,6 +172,7 @@
             }
         }
     </script>
+    <script src="./packet/sweetalert2.all.min.js"></script>
     <script>
         let signinform = document.querySelector("#signinform")
 
@@ -146,28 +180,55 @@
             e.preventDefault();
             let email = signinform.email.value.trim()
             let password = signinform.password.value.trim()
-        
+            
 
-            // let datasignupform = {
-            //     fname: fname,
-            //     email: email,
-            //     password: password,
-            //     lname: lname
-            // }
-            if (password >= 6) {
-
-            } else {
-                document.getElementById("passwordvalidate").innerHTML =
-                    "Your password is higher than 6 characters."
-
-               
-                    setTimeout(function () {
-                        document.getElementById("passwordvalidate").innerHTML = ""
-                    }, 3000);
-                
+            let datasigninform = {
+                email: email,
+                password: password,
             }
+            if(email && password)
+            {
+                signIn_process(datasigninform)
+            }
+
+        }
+        let signIn_process = async (data)=>{
+    let email = data.email
+    let password = data.password
+    try {
+        let result = await firebase.auth().signInWithEmailAndPassword(email, password)
+        let user = result.user
+        if (user.emailVerified) {
+            alert("success")
+        } else {
+            throw new Error('Must verify email!')
+        }
+    } catch (error) {
+
+        let message = error.message
+        sweetAlert('error', message)
+    }
+    function sweetAlert(icon, content) {
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      })
+      
+      Toast.fire({
+        icon: icon,
+        title: content
+      })
+}
         }
     </script>
+   
 </body>
 
 </html>
