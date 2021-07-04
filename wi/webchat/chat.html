@@ -1,19 +1,601 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BaMesNasageNa Chat</title>
     <!-- CSS only -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.12.0/css/all.css">
+    <style>
+        body {
+            font-family: "Lato", sans-serif;
+        }
+
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidenav a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+
+            .sidenav a {
+                font-size: 18px;
+            }
+        }
+
+        .list-group-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .list-group {
+            overflow: auto;
+            height: 520px;
+        }
+
+        .nameandspan {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .owner {
+            background-color: rgb(41, 201, 255);
+            align-self: flex-end;
+        }
+
+        body.dark {
+            background: #292C35;
+        }
+
+        .checkbox {
+            opacity: 0;
+            position: absolute;
+        }
+
+        .label {
+            background-color: #111;
+            border-radius: 50px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 5px;
+            position: relative;
+            height: 26px;
+            width: 50px;
+            transform: scale(1.5);
+        }
+
+        .label .ball {
+            background-color: #fff;
+            border-radius: 50%;
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            height: 22px;
+            width: 22px;
+            transform: translateX(0px);
+            transition: transform 0.2s linear;
+        }
+
+        .checkbox:checked+.label .ball {
+            transform: translateX(24px);
+        }
+
+
+        .fa-moon {
+            color: #f1c40f;
+        }
+
+        .fa-sun {
+            color: #f39c12;
+        }
+
+
+        /* SOCIAL PANEL CSS */
+        .social-panel-container {
+            position: fixed;
+            right: 0;
+            bottom: 80px;
+            transform: translateX(100%);
+            transition: transform 0.4s ease-in-out;
+        }
+
+        .social-panel-container.visible {
+            transform: translateX(-10px);
+        }
+
+        .social-panel {
+            background-color: #fff;
+            border-radius: 16px;
+            box-shadow: 0 16px 31px -17px rgba(0, 31, 97, 0.6);
+            border: 5px solid #001F61;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Muli';
+            position: relative;
+            height: 169px;
+            width: 370px;
+            max-width: calc(100% - 10px);
+        }
+
+        .social-panel button.close-btn {
+            border: 0;
+            color: #97A5CE;
+            cursor: pointer;
+            font-size: 20px;
+            position: absolute;
+            top: 5px;
+            right: 5px;
+        }
+
+        .social-panel button.close-btn:focus {
+            outline: none;
+        }
+
+        .social-panel p {
+            background-color: #001F61;
+            border-radius: 0 0 10px 10px;
+            color: #fff;
+            font-size: 14px;
+            line-height: 18px;
+            padding: 2px 17px 6px;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            margin: 0;
+            transform: translateX(-50%);
+            text-align: center;
+            width: 235px;
+        }
+
+        .social-panel p i {
+            margin: 0 5px;
+        }
+
+        .social-panel p a {
+            color: #FF7500;
+            text-decoration: none;
+        }
+
+        .social-panel h4 {
+            margin: 20px 0;
+            color: #97A5CE;
+            font-family: 'Muli';
+            font-size: 14px;
+            line-height: 18px;
+            text-transform: uppercase;
+        }
+
+        .social-panel ul {
+            display: flex;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .social-panel ul li {
+            margin: 0 10px;
+        }
+
+        .social-panel ul li a {
+            border: 1px solid #DCE1F2;
+            border-radius: 50%;
+            color: #001F61;
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50px;
+            width: 50px;
+            text-decoration: none;
+        }
+
+        .social-panel ul li a:hover {
+            border-color: #FF6A00;
+            box-shadow: 0 9px 12px -9px #FF6A00;
+        }
+
+        .floating-btn {
+            border-radius: 26.5px;
+            background-color: #001F61;
+            border: 1px solid #001F61;
+            box-shadow: 0 16px 22px -17px #03153B;
+            color: #fff;
+            cursor: pointer;
+            font-size: 16px;
+            line-height: 20px;
+            padding: 12px 20px;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 999;
+        }
+
+        .floating-btn:hover {
+            background-color: #ffffff;
+            color: #001F61;
+        }
+
+        .floating-btn:focus {
+            outline: none;
+        }
+
+        .floating-text {
+            background-color: #001F61;
+            border-radius: 10px 10px 0 0;
+            color: #fff;
+            font-family: 'Muli';
+            padding: 7px 15px;
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            z-index: 998;
+        }
+
+        .floating-text a {
+            color: #FF7500;
+            text-decoration: none;
+        }
+
+        @media screen and (max-width: 480px) {
+
+            .social-panel-container.visible {
+                transform: translateX(0px);
+            }
+
+            .floating-btn {
+                right: 10px;
+            }
+        }
+    </style>
 </head>
+
 <body>
- 
-    
+    <!-- <nav style="border: 4px solid black; display: flex; flex-direction: column-reverse;justify-content: space-between; width: 80px;height: 100%;">
+        <h3>hello</h3>
+        <h6 style="color: rgb(255, 52, 52);">Log out</h6>
+    </nav>
+    <div class="userschatting">
+        <h2>Chats</h2>
+    </div> -->
+    <div id="mySidenav" class="sidenav" style="display: flex; flex-direction: column;justify-content: space-around;background-color: rgb(41, 201, 255);">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#">
+            <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_lt1boriu.json" background="transparent"
+                speed="1" style="width: 85px; height: 85px;" loop autoplay></lottie-player>
+        </a>
+        <div style="display:flex;"/>
+            <input type="checkbox" class="checkbox" id="chk" />
+            <label style="margin-left: 50px;" class="label" for="chk">
+                <i class="fas fa-moon"></i>
+                <i class="fas fa-sun"></i>
+                <div class="ball"></div>
+            </label>
+        </div>
+        <a href="#" style="color: rgb(255, 46, 46);">Log Out</a>
+    </div>
+    <div>
+        <span style="font-size:30px;cursor:pointer;margin-left: 5px;color: rgb(41, 201, 255);" onclick="openNav()">&#9776;</span>
+    </div><br>
+    <div class="container">
+        <div class="row" style="height: 620px;">
+            <div class="col-6 right">
+                <h3 style="text-align: center;margin-top: 16px;margin-bottom: 23px;color: rgb(41, 201, 255);">Chats</h3>
+                <hr>
+                <div class="list-group list-group-flush border-bottom scrollarea overflow-auto">
+                    <div class="list-group-item">
+                        <div>
+                            <img src="https://img.icons8.com/ios-glyphs/60/000000/user--v1.png" />
+                            <span>Nguyen Duc Tuan</span>
+                        </div>
+                        <div>
+                            <span>9:00 Sun</span>
+                        </div>
+                    </div>
+                    <div class="list-group-item">
+                        <div>
+                            <img src="https://img.icons8.com/ios-glyphs/60/000000/user--v1.png" />
+                            <span>Nguyen Duc Tuan</span>
+                        </div>
+                        <div>
+                            <span>9:00 Sun</span>
+                        </div>
+                    </div>
+                    <div class="list-group-item">
+                        <div>
+                            <img src="https://img.icons8.com/ios-glyphs/60/000000/user--v1.png" />
+                            <span>Nguyen Duc Tuan</span>
+                        </div>
+                        <div>
+                            <span>9:00 Sun</span>
+                        </div>
+                    </div>
+                    <div class="list-group-item">
+                        <div>
+                            <img src="https://img.icons8.com/ios-glyphs/60/000000/user--v1.png" />
+                            <span>Nguyen Duc Tuan</span>
+                        </div>
+                        <div>
+                            <span>9:00 Sun</span>
+                        </div>
+                    </div>
+                    <div class="list-group-item">
+                        <div>
+                            <img src="https://img.icons8.com/ios-glyphs/60/000000/user--v1.png" />
+                            <span>Nguyen Duc Tuan</span>
+                        </div>
+                        <div>
+                            <span>9:00 Sun</span>
+                        </div>
+                    </div>
+                    <div class="list-group-item">
+                        <div>
+                            <img src="https://img.icons8.com/ios-glyphs/60/000000/user--v1.png" />
+                            <span>Nguyen Duc Tuan</span>
+                        </div>
+                        <div>
+                            <span>9:00 Sun</span>
+                        </div>
+                    </div>
+                    <div class="list-group-item">
+                        <div>
+                            <img src="https://img.icons8.com/ios-glyphs/60/000000/user--v1.png" />
+                            <span>Nguyen Duc Tuan</span>
+                        </div>
+                        <div>
+                            <span>9:00 Sun</span>
+                        </div>
+                    </div>
+                    <div class="list-group-item">
+                        <div>
+                            <img src="https://img.icons8.com/ios-glyphs/60/000000/user--v1.png" />
+                            <span>Nguyen Duc Tuan</span>
+                        </div>
+                        <div>
+                            <span>9:00 Sun</span>
+                        </div>
+                    </div>
+                    <div class="list-group-item">
+                        <div>
+                            <img src="https://img.icons8.com/ios-glyphs/60/000000/user--v1.png" />
+                            <span>Nguyen Duc Tuan</span>
+                        </div>
+                        <div>
+                            <span>9:00 Sun</span>
+                        </div>
+                    </div>
+                    <div class="list-group-item">
+                        <div>
+                            <img src="https://img.icons8.com/ios-glyphs/60/000000/user--v1.png" />
+                            <span>Nguyen Duc Tuan</span>
+                        </div>
+                        <div>
+                            <span>9:00 Sun</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <Br>
+            <div class="col-6 left">
+                <div class="nameandspan">
+                    <div>
+                        <h3 style="margin-top: 15px;color: rgb(41, 201, 255);">Nguyen Duc Tuan</h3>
+                    </div>
+                    <div>
+                        <span>9:00</span>
+                    </div>
+                </div>
+                <hr>
+                <div>
+                    <div class="chatdisplay scrollarea overflow-auto" style="height: 450px;">
+                        <div class="chatcontent" style="display:flex;flex-direction: column;">
+                            <div class="owner"
+                                style="display: flex;justify-content: flex-start;margin: 5px 5px 5px 5px;background-color: rgb(41, 201, 255);border-radius: 3px;flex-wrap: wrap;width: 400px;">
+                                <div style="margin: 5px 5px 5px 5px;">Hello Ben, My Name is Big Chungus. I am a Rabbit
+                                    but really smart!</div>
+                            </div>
+                            <div
+                                style="display: flex;justify-content: flex-start;margin: 5px 5px 5px 5px;background-color: lightgray;border-radius: 3px;flex-wrap: wrap;width: 400px;">
+                                <div style="margin: 5px 5px 5px 5px;">Hello Big Chungus, My name is Ben, I am really
+                                    good at coding this site.</div>
+                            </div>
+                            <div class="owner"
+                                style="display: flex;justify-content: flex-start;margin: 5px 5px 5px 5px;background-color: rgb(41, 201, 255);border-radius: 3px;flex-wrap: wrap;width: 400px;">
+                                <div style="margin: 5px 5px 5px 5px;">Hello Ben, My Name is Big Chungus. I am a Rabbit
+                                    but really smart!</div>
+                            </div>
+                            <div
+                                style="display: flex;justify-content: flex-start;margin: 5px 5px 5px 5px;background-color: lightgray;border-radius: 3px;flex-wrap: wrap;width: 400px;">
+                                <div style="margin: 5px 5px 5px 5px;">Hello Big Chungus, My name is Ben, I am really
+                                    good at coding this site.</div>
+                            </div>
+                            <div class="owner"
+                                style="display: flex;justify-content: flex-start;margin: 5px 5px 5px 5px;background-color: rgb(41, 201, 255);border-radius: 3px;flex-wrap: wrap;width: 400px;">
+                                <div style="margin: 5px 5px 5px 5px;">Hello Ben, My Name is Big Chungus. I am a Rabbit
+                                    but really smart!</div>
+                            </div>
+                            <div
+                                style="display: flex;justify-content: flex-start;margin: 5px 5px 5px 5px;background-color: lightgray;border-radius: 3px;flex-wrap: wrap;width: 400px;">
+                                <div style="margin: 5px 5px 5px 5px;">Hello Big Chungus, My name is Ben, I am really
+                                    good at coding this site.</div>
+                            </div>
+                            <div class="owner"
+                                style="display: flex;justify-content: flex-start;margin: 5px 5px 5px 5px;background-color: rgb(41, 201, 255);border-radius: 3px;flex-wrap: wrap;width: 400px;">
+                                <div style="margin: 5px 5px 5px 5px;">Hello Ben, My Name is Big Chungus. I am a Rabbit
+                                    but really smart!</div>
+                            </div>
+                            <div
+                                style="display: flex;justify-content: flex-start;margin: 5px 5px 5px 5px;background-color: lightgray;border-radius: 3px;flex-wrap: wrap;width: 400px;">
+                                <div style="margin: 5px 5px 5px 5px;">Hello Big Chungus, My name is Ben, I am really
+                                    good at coding this site.</div>
+                            </div>
+                            <div class="owner"
+                                style="display: flex;justify-content: flex-start;margin: 5px 5px 5px 5px;background-color: rgb(41, 201, 255);border-radius: 3px;flex-wrap: wrap;width: 400px;">
+                                <div style="margin: 5px 5px 5px 5px;">Hello Ben, My Name is Big Chungus. I am a Rabbit
+                                    but really smart!</div>
+                            </div>
+                            <div
+                                style="display: flex;justify-content: flex-start;margin: 5px 5px 5px 5px;background-color: lightgray;border-radius: 3px;flex-wrap: wrap;width: 400px;">
+                                <div style="margin: 5px 5px 5px 5px;">Hello Big Chungus, My name is Ben, I am really
+                                    good at coding this site.</div>
+                            </div>
+                            <div class="owner"
+                                style="display: flex;justify-content: flex-start;margin: 5px 5px 5px 5px;background-color: rgb(41, 201, 255);border-radius: 3px;flex-wrap: wrap;width: 400px;">
+                                <div style="margin: 5px 5px 5px 5px;">Hello Ben, My Name is Big Chungus. I am a Rabbit
+                                    but really smart!</div>
+                            </div>
+                            <div
+                                style="display: flex;justify-content: flex-start;margin: 5px 5px 5px 5px;background-color: lightgray;border-radius: 3px;flex-wrap: wrap;width: 400px;">
+                                <div style="margin: 5px 5px 5px 5px;">Hello Big Chungus, My name is Ben, I am really
+                                    good at coding this site.</div>
+                            </div>
+                            <div class="owner"
+                                style="display: flex;justify-content: flex-start;margin: 5px 5px 5px 5px;background-color: rgb(41, 201, 255);border-radius: 3px;flex-wrap: wrap;width: 400px;">
+                                <div style="margin: 5px 5px 5px 5px;">Hello Ben, My Name is Big Chungus. I am a Rabbit
+                                    but really smart!</div>
+                            </div>
+                            <div
+                                style="display: flex;justify-content: flex-start;margin: 5px 5px 5px 5px;background-color: lightgray;border-radius: 3px;flex-wrap: wrap;width: 400px;">
+                                <div style="margin: 5px 5px 5px 5px;">Hello Big Chungus, My name is Ben, I am really
+                                    good at coding this site.</div>
+                            </div>
+                            <div class="owner"
+                                style="display: flex;justify-content: flex-start;margin: 5px 5px 5px 5px;background-color: rgb(41, 201, 255);border-radius: 3px;flex-wrap: wrap;width: 400px;">
+                                <div style="margin: 5px 5px 5px 5px;">Hello Ben, My Name is Big Chungus. I am a Rabbit
+                                    but really smart!</div>
+                            </div>
+                            <div
+                                style="display: flex;justify-content: flex-start;margin: 5px 5px 5px 5px;background-color: lightgray;border-radius: 3px;flex-wrap: wrap;width: 400px;">
+                                <div style="margin: 5px 5px 5px 5px;">Hello Big Chungus, My name is Ben, I am really
+                                    good at coding this site.</div>
+                            </div>
+                            <div class="owner"
+                                style="display: flex;justify-content: flex-start;margin: 5px 5px 5px 5px;background-color: rgb(41, 201, 255);border-radius: 3px;flex-wrap: wrap;width: 400px;">
+                                <div style="margin: 5px 5px 5px 5px;">Hello Ben, My Name is Big Chungus. I am a Rabbit
+                                    but really smart!</div>
+                            </div>
+                            <div
+                                style="display: flex;justify-content: flex-start;margin: 5px 5px 5px 5px;background-color: lightgray;border-radius: 3px;flex-wrap: wrap;width: 400px;">
+                                <div style="margin: 5px 5px 5px 5px;">Hello Big Chungus, My name is Ben, I am really
+                                    good at coding this site.</div>
+                            </div>
+                            <div class="owner"
+                                style="display: flex;justify-content: flex-start;margin: 5px 5px 5px 5px;background-color: rgb(41, 201, 255);border-radius: 3px;flex-wrap: wrap;width: 400px;">
+                                <div style="margin: 5px 5px 5px 5px;">Hello Ben, My Name is Big Chungus. I am a Rabbit
+                                    but really smart!</div>
+                            </div>
+                            <div
+                                style="display: flex;justify-content: flex-start;margin: 5px 5px 5px 5px;background-color: lightgray;border-radius: 3px;flex-wrap: wrap;width: 400px;">
+                                <div style="margin: 5px 5px 5px 5px;">Hello Big Chungus, My name is Ben, I am really
+                                    good at coding this site.</div>
+                            </div>
+                            <div class="owner"
+                                style="display: flex;justify-content: flex-start;margin: 5px 5px 5px 5px;background-color: rgb(41, 201, 255);border-radius: 3px;flex-wrap: wrap;width: 400px;">
+                                <div style="margin: 5px 5px 5px 5px;">Hello Ben, My Name is Big Chungus. I am a Rabbit
+                                    but really smart!</div>
+                            </div>
+                            <div
+                                style="display: flex;justify-content: flex-start;margin: 5px 5px 5px 5px;background-color: lightgray;border-radius: 3px;flex-wrap: wrap;width: 400px;">
+                                <div style="margin: 5px 5px 5px 5px;">Hello Big Chungus, My name is Ben, I am really
+                                    good at coding this site.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <Br>
+                    <div class="mport" style="height: 60px;display:flex;justify-content: center;">
+                        <form action="">
+                            <input type="text" placeholder="Enter Your Message..."
+                                style="width: 450px;;margin: 10px 10px 10px 10px;border-radius: 5px;border: 2px solid rgb(41, 201, 255);">
+                                <img src="https://img.icons8.com/ios-filled/50/000000/send-comment.png" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+
+    </div>
 
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+
+
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "150px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+        const chk = document.getElementById('chk');
+
+        chk.addEventListener('change', () => {
+            document.body.classList.toggle('dark');
+        });
+
+        // SOCIAL PANEL JS
+        const floating_btn = document.querySelector('.floating-btn');
+        const close_btn = document.querySelector('.close-btn');
+        const social_panel_container = document.querySelector('.social-panel-container');
+
+        floating_btn.addEventListener('click', () => {
+            social_panel_container.classList.toggle('visible')
+        });
+
+        close_btn.addEventListener('click', () => {
+            social_panel_container.classList.remove('visible')
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
+    </script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 </body>
+
 </html>
