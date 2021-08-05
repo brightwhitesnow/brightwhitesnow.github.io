@@ -97,7 +97,7 @@ let rederListFriends = (data, currentEmail)=>{
     }
 
     for(let i of data){
-        let user = document.querySelector(`#${i.id}`)
+        let user = document.getElementById(`${i.id}`)
         console.log(user)
         user.onclick = ()=>{
           renderChat(i, currentEmail)
@@ -205,3 +205,67 @@ let setUpConversationchange =  async (email) => {
       }
   })
 }
+
+
+
+
+let fAddConversation = document.querySelector("#fAddConversation")
+fAddConversation.onsubmit = (e)=>{
+    e.preventDefault()
+
+    let email = fAddConversation.femail.value.trim().toLowerCase()
+    let name = fAddConversation.fname.value
+    let currentEmail = document.querySelector("#currentEmail").textContent
+
+    console.log(email);
+    console.log(name);
+
+    let date = new Date()
+    let h = date.getHours()
+    let m = date.getMinutes()
+    let s = date.getSeconds()
+    let d = date.getDay()
+
+    if(m < 10){
+        m = "0" + m
+    }
+    if(h < 10){
+        h = "0" + h
+    }
+    if(s < 10){
+        s = "0" + s
+    }
+  var weekday = new Array(7);
+  weekday[0] = "Sunday";
+  weekday[1] = "Monday";
+  weekday[2] = "Tuesday";
+  weekday[3] = "Wednesday";
+  weekday[4] = "Thursday";
+  weekday[5] = "Friday";
+  weekday[6] = "Saturday";
+
+  var n = weekday[d]
+
+
+    let conversation = {
+        createAt : `${h}:${m}:${s}     ${n}`,
+        friendName: name,
+        messages: [],
+        users:[currentEmail,email]
+    }
+    addConversation(conversation)
+}
+
+let addConversation = async (data)=>{
+    await firebase.firestore().collection('chat').add(data)
+}
+
+
+// get the element
+const buttonadd = document.getElementById('buttonadd')
+
+// always checking if the element is clicked, if so, do alert('hello')
+buttonadd.addEventListener("click", () => {
+	setTimeout(function(){ location.reload()}, 5000); 
+            }
+);
