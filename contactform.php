@@ -1,15 +1,33 @@
 <?php
 
-if (isset($_POST['submit'])) {
-    $name = $_POST['name'];
-    $mailFrom = $_POST['mail'];
-    $subject = $_POST['subject'];
-    $message = $_POST['message'];
+$name = $_POST['name'];
+$email = $_POST['email'];
+$subject = $_POST['subject'];
+$message = $_POST['message'];
 
-    $mailTo = "ben.nguyen08@icloud.com";
-    $headers = "Portfolio - From: ".$name;
-    $txt = "You have received an email from ".$name.".\nThere email is ".$mailFrom."!\n\n".$message;
+require "vendor/autoload.php";
 
-    mail($mailTo, $subject, $txt, $headers);
-    header("Location: index.html");
-}
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+
+$mail = new PHPMailer(true);
+
+$mail->isSMTP();
+$mail->SMTPAuth = true;
+
+$mail->Host = "smtp.sendgrid.net";
+$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+$mail->Port = 587;
+
+$mail->Username = "apikey";
+$mail->Password = "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";
+
+$mail->setFrom($email, $name);
+$mail->addAddress("dave@example.com", "Dave");
+
+$mail->Subject = $subject;
+$mail->Body = $message;
+
+$mail->send();
+
+header("Location: success.html");
